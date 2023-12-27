@@ -8,14 +8,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from "@angular/material/button"
+import { HomeComponent } from './Home/home.component';
 
 const appRoute: Routes = [
-  { path: "", component: LoginFormComponent }
+  { path: "", component: LoginFormComponent },
+  { path: "home", component: HomeComponent }
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

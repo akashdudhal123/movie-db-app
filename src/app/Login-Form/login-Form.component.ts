@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -9,6 +10,8 @@ import { FormControl, FormGroup } from "@angular/forms";
 })
 export class LoginFormComponent {
 
+    constructor(private router: Router) { }
+
     loginForm: FormGroup = new FormGroup({
         'username': new FormControl(null),
         'password': new FormControl(null)
@@ -16,7 +19,12 @@ export class LoginFormComponent {
 
     logedIn() {
         console.log(this.loginForm.value);
-        sessionStorage.setItem('token','abcd@123123');
+        const accessTokan: string | null = sessionStorage.getItem('token');
+        console.log(accessTokan);
+        if(accessTokan){
+            this.router.navigateByUrl('/home')
+        }
+        
     }
 
 
